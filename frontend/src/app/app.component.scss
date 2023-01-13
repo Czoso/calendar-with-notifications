@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  min-width: 600px;
+  height: 80%;
+  background-color: #fff;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+}
+.content {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
