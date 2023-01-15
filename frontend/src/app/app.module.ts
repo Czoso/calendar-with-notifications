@@ -2,15 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MainFieldComponent } from './main-field/main-field.component';
+import {
+  AddComponent,
+  AppComponent,
+  DeleteComponent,
+  HeaderComponent,
+  MainFieldComponent,
+  OptionsComponent,
+  PreviewComponent,
+} from './components';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MainFieldComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    PreviewComponent,
+    AddComponent,
+    DeleteComponent,
+    OptionsComponent,
+    MainFieldComponent,
+  ],
   imports: [
     BrowserModule,
+
     MatCardModule,
     AppRoutingModule,
     NoopAnimationsModule,
