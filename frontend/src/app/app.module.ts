@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ContentComponent } from './content/content.component';
+import { MainFieldComponent } from './main-field/main-field.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ContentComponent],
+  declarations: [AppComponent, HeaderComponent, MainFieldComponent],
   imports: [
     BrowserModule,
     MatCardModule,

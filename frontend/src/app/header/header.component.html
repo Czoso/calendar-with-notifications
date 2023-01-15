@@ -1,4 +1,8 @@
-<div class="tab active">Preview</div>
-<div class="tab">Add</div>
-<div class="tab">Delete</div>
-<div class="tab">Options</div>
+<div
+  class="tab"
+  *ngFor="let heading of headings"
+  routerLink="{{ heading }}"
+  routerLinkActive="active"
+>
+  {{ heading }}
+</div>
