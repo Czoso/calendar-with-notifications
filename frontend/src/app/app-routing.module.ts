@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './main-field/add/add.component';
-import { DeleteComponent } from './main-field/delete/delete.component';
-import { OptionsComponent } from './main-field/options/options.component';
-import { PreviewComponent } from './main-field/preview/preview.component';
+import {
+  AddComponent,
+  DeleteComponent,
+  OptionsComponent,
+  PreviewComponent,
+} from './components';
 
 const routes: Routes = [
   {
