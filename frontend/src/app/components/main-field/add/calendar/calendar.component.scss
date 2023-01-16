@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+.year {
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+  margin: 10px 0;
+  &__previous-year {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  &__this-year {
+    display: flex;
+    text-align: center;
+    max-width: 80px;
+    overflow: hidden;
+    &__year-wrapper {
+      display: flex;
+      text-align: center;
+      max-width: 80px;
+      &__displayed-year {
+        min-width: 80px;
+      }
+    }
+  }
+  &__next-year {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
+.months {
+  &__months-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    &__month {
+      margin: 5px 4px;
+      list-style: none;
+      width: 40px;
+      flex-grow: 1;
+      text-align: center;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+}
+.month__active {
+  background-color: #4a3;
+}
+.weeks {
+  display: flex;
+  justify-content: center;
+  &__days-list {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    &__day {
+      width: 20px;
+      text-align: center;
+      list-style: none;
+    }
+  }
+}
+.days {
+  width: 212px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  &__day {
+    width: 30px;
+    text-align: center;
+    list-style: none;
+    border: 1px solid black;
+    color: #ccc;
+  }
+}

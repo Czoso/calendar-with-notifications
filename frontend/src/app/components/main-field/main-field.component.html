@@ -1,4 +1,4 @@
-<app-preview *ngIf=""></app-preview>
-<app-add></app-add>
-<app-delete></app-delete>
-<app-options></app-options>
+<app-preview *ngIf="router.url === '/preview'"></app-preview>
+<app-add *ngIf="router.url === '/add'"></app-add>
+<app-delete *ngIf="router.url === '/delete'"></app-delete>
+<app-options *ngIf="router.url === '/options'"></app-options>
