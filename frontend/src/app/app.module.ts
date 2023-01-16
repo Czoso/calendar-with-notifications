@@ -6,6 +6,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AddComponent,
   AppComponent,
+  CalendarComponent,
   DeleteComponent,
   HeaderComponent,
   MainFieldComponent,
@@ -22,6 +23,7 @@ import {
     DeleteComponent,
     OptionsComponent,
     MainFieldComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

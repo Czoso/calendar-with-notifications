@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="year">
+    <div class="year__previous-year" (click)="changeYear('previous')"><</div>
+    <div class="year__this-year">
+      <div class="year__this-year__year-wrapper">
+        <div class="year__this-year__year-wrapper__displayed-year">
+          {{ year }}
+        </div>
+      </div>
+    </div>
+    <div class="year__next-year" (click)="changeYear('next')">></div>
+  </div>
+  <div class="months">
+    <ul class="months__months-list">
+      <li
+        class="months__months-list__month"
+        *ngFor="let month of months; index as i"
+        (click)="monthsClicked(i)"
+      >
+        {{ month }}
+      </li>
+    </ul>
+  </div>
+  <div class="weeks">
+    <ul class="weeks__days-list">
+      <li class="weeks__days-list__day" *ngFor="let day of weekDays">
+        {{ day }}
+      </li>
+    </ul>
+  </div>
+  <div class="days">
+    <div class="days__day" *ngFor="let day of days">{{ day }}</div>
+  </div>
+</div>
