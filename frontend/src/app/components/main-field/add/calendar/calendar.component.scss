@@ -52,7 +52,7 @@
     }
   }
 }
-.month__active {
+.month-active {
   background-color: #4a3;
 }
 .weeks {
@@ -84,4 +84,11 @@
     border: 1px solid black;
     color: #ccc;
   }
+}
+.day-exist {
+  color: #000;
+  cursor: pointer;
+}
+.day-active {
+  background-color: #4a3;
 }

@@ -47,12 +47,12 @@ export class CalendarComponent implements OnInit {
           const nextYear = this.year + 1;
           yearDiv.textContent = nextYear.toString();
           setTimeout(() => {
-            this.year += 1;
             currentYear.remove();
             this.animationInProgress = false;
           }, animationTime);
           yearContainer?.appendChild(yearDiv);
           yearContainer?.animate(changingNextYear, animationTime);
+          this.year += 1;
         }
         if (direction === 'previous') {
           const changingPreviousYear = [
@@ -62,23 +62,88 @@ export class CalendarComponent implements OnInit {
           const previousYear = this.year - 1;
           yearDiv.textContent = previousYear.toString();
           setTimeout(() => {
-            this.year -= 1;
             currentYear.remove();
             this.animationInProgress = false;
           }, animationTime);
           yearContainer?.insertBefore(yearDiv, yearContainer?.firstChild);
           yearContainer?.animate(changingPreviousYear, animationTime);
+          this.year -= 1;
         }
+        this.generateDays();
       }
     }
+    this.generateDays();
   }
   public monthsClicked(monthClicked: number): void {
     const monthsButtons = document.querySelectorAll(
       '.months__months-list__month'
     );
     monthsButtons.forEach((month) => {
-      month.classList.remove('month__active');
+      month.classList.remove('month-active');
     });
-    monthsButtons[monthClicked].classList.add('month__active');
+    monthsButtons[monthClicked].classList.add('month-active');
+    this.generateDays();
+  }
+  public generateDays(): void {
+    this.days.fill(0);
+    let days: number[] = new Array(42).fill(0);
+    let enteredMonth = -1;
+    const monthsButtons = document.querySelectorAll(
+      '.months__months-list__month'
+    );
+    monthsButtons.forEach((month, index) => {
+      if (month.classList.contains('month-active')) {
+        enteredMonth = index;
+      }
+    });
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    if (enteredMonth > -1) {
+      const enteredDate = new Date(
+        `${monthNames[enteredMonth]} 1, ${this.year} 23:15:15`
+      );
+      const weekday = enteredDate.getDay();
+      console.log(enteredMonth);
+      console.log(enteredDate);
+      const monthDays = new Date(this.year, enteredMonth + 1, 0).getDate();
+
+      console.log(weekday);
+      console.log(monthDays);
+      function fillDays(weekday: number): void {
+        console.log('filling');
+        console.log(monthDays);
+        for (let i = 0; i < monthDays; i++) {
+          days[weekday + i - 1] = i + 1;
+        }
+      }
+      if (weekday == 0) {
+        fillDays(weekday + 7);
+        console.log('sunday');
+      } else {
+        console.log('else');
+        fillDays(weekday);
+      }
+      this.days = days;
+      console.log(this.days);
+    }
+  }
+  public dayClicked(dayClicked: HTMLElement): void {
+    const days = document.querySelectorAll('.days__day');
+    days.forEach((day) => {
+      day.classList.remove('day-active');
+    });
+    dayClicked.classList.add('day-active');
   }
 }
