@@ -29,6 +29,15 @@
     </ul>
   </div>
   <div class="days">
-    <div class="days__day" *ngFor="let day of days">{{ day }}</div>
+    <div
+      ngModel
+      #dayContainer
+      (click)="dayClicked(dayContainer)"
+      class="days__day"
+      [ngClass]="{ 'day-exist': day }"
+      *ngFor="let day of days"
+    >
+      {{ day }}
+    </div>
   </div>
 </div>
