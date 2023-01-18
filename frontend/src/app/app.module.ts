@@ -7,6 +7,7 @@ import {
   AddComponent,
   AppComponent,
   CalendarComponent,
+  ClockComponent,
   DeleteComponent,
   HeaderComponent,
   MainFieldComponent,
@@ -24,6 +25,7 @@ import {
     OptionsComponent,
     MainFieldComponent,
     CalendarComponent,
+    ClockComponent,
   ],
   imports: [
     BrowserModule,
