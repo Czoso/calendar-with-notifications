@@ -115,28 +115,18 @@ export class CalendarComponent implements OnInit {
         `${monthNames[enteredMonth]} 1, ${this.year} 23:15:15`
       );
       const weekday = enteredDate.getDay();
-      console.log(enteredMonth);
-      console.log(enteredDate);
       const monthDays = new Date(this.year, enteredMonth + 1, 0).getDate();
-
-      console.log(weekday);
-      console.log(monthDays);
       function fillDays(weekday: number): void {
-        console.log('filling');
-        console.log(monthDays);
         for (let i = 0; i < monthDays; i++) {
           days[weekday + i - 1] = i + 1;
         }
       }
       if (weekday == 0) {
         fillDays(weekday + 7);
-        console.log('sunday');
       } else {
-        console.log('else');
         fillDays(weekday);
       }
       this.days = days;
-      console.log(this.days);
     }
   }
   public dayClicked(dayClicked: HTMLElement): void {

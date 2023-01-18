@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 70px;
+  border: 2px solid black;
+}
+.hours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  flex-grow: 1;
+  font-size: 2.5rem;
+  &__next-hour {
+    height: 20px;
+    transform: rotate(90deg);
+  }
+
+  &__previous-hour {
+    height: 20px;
+    transform: rotate(90deg);
+  }
+}
+.colon {
+  font-size: 3rem;
+}
+.minutes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  flex-grow: 1;
+  font-size: 2.5rem;
+  &__next-minute {
+    height: 20px;
+    transform: rotate(90deg);
+  }
+
+  &__previous-minute {
+    height: 20px;
+    transform: rotate(90deg);
+  }
+}
