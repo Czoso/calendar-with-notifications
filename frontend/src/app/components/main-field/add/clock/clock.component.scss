@@ -16,11 +16,29 @@
   &__next-hour {
     height: 20px;
     transform: rotate(90deg);
+    cursor: pointer;
+  }
+  &__hour-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 30px;
+    overflow: hidden;
+    &__hour-displayer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-height: 30px;
+      &__hour {
+        line-height: 30px;
+      }
+    }
   }
 
   &__previous-hour {
     height: 20px;
     transform: rotate(90deg);
+    cursor: pointer;
   }
 }
 .colon {
@@ -36,10 +54,28 @@
   &__next-minute {
     height: 20px;
     transform: rotate(90deg);
+    cursor: pointer;
   }
+  &__minute-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 30px;
+    overflow: hidden;
+    &__minute-displayer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-height: 30px;
 
+      &__minute {
+        line-height: 30px;
+      }
+    }
+  }
   &__previous-minute {
     height: 20px;
     transform: rotate(90deg);
+    cursor: pointer;
   }
 }
