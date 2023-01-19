@@ -130,10 +130,12 @@ export class CalendarComponent implements OnInit {
     }
   }
   public dayClicked(dayClicked: HTMLElement): void {
-    const days = document.querySelectorAll('.days__day');
-    days.forEach((day) => {
-      day.classList.remove('day-active');
-    });
-    dayClicked.classList.add('day-active');
+    if (Number(dayClicked.textContent) != 0) {
+      const days = document.querySelectorAll('.days__day');
+      days.forEach((day) => {
+        day.classList.remove('day-active');
+      });
+      dayClicked.classList.add('day-active');
+    }
   }
 }
