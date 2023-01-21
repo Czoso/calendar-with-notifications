@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventDate, EventTime } from 'src/app/shared';
+import { CalendarService } from './calendar.service';
+import { ClockService } from './clock';
 
 @Component({
   selector: 'app-calendar',
@@ -24,9 +27,53 @@ export class CalendarComponent implements OnInit {
   ];
   public year: number = 2013;
   private animationInProgress: boolean = false;
-  constructor() {}
-
-  ngOnInit() {}
+  private monthName: string = '';
+  private eventTime?: EventTime;
+  constructor(
+    private clockService: ClockService,
+    private calendarService: CalendarService
+  ) {}
+  public ngOnInit(): void {
+    this.clockService.currentTime$.subscribe((time: EventTime) => {
+      this.eventTime = time;
+      this.sendDate();
+    });
+  }
+  private sendDate() {
+    let dayValue = -1;
+    function isMonthActive(): boolean {
+      let isActive = false;
+      const monthsButtons = document.querySelectorAll(
+        '.months__months-list__month'
+      );
+      monthsButtons.forEach((month) => {
+        if (month.classList.contains('month-active')) {
+          isActive = true;
+        }
+      });
+      return isActive;
+    }
+    function isDayActive(): boolean {
+      let isActive = false;
+      const days = document.querySelectorAll('.days__day');
+      days.forEach((day) => {
+        if (day.classList.contains('day-active')) {
+          isActive = true;
+          dayValue = Number(day.textContent);
+        }
+      });
+      return isActive;
+    }
+    if (isDayActive() && isMonthActive() && this.eventTime) {
+      const currentDate: EventDate = {
+        day: dayValue,
+        month: this.monthName,
+        year: this.year,
+        time: this.eventTime,
+      };
+      this.calendarService.setDate(currentDate);
+    }
+  }
   public changeYear(direction: string): void {
     if (this.animationInProgress == false) {
       this.animationInProgress = true;
@@ -72,7 +119,6 @@ export class CalendarComponent implements OnInit {
         this.generateDays();
       }
     }
-    this.generateDays();
   }
   public monthsClicked(monthClicked: number): void {
     const monthsButtons = document.querySelectorAll(
@@ -110,7 +156,9 @@ export class CalendarComponent implements OnInit {
       'November',
       'December',
     ];
+
     if (enteredMonth > -1) {
+      this.monthName = monthNames[enteredMonth];
       const enteredDate = new Date(
         `${monthNames[enteredMonth]} 1, ${this.year} 23:15:15`
       );
@@ -127,6 +175,7 @@ export class CalendarComponent implements OnInit {
         fillDays(weekday);
       }
       this.days = days;
+      this.sendDate();
     }
   }
   public dayClicked(dayClicked: HTMLElement): void {
@@ -136,6 +185,7 @@ export class CalendarComponent implements OnInit {
         day.classList.remove('day-active');
       });
       dayClicked.classList.add('day-active');
+      this.sendDate();
     }
   }
 }
