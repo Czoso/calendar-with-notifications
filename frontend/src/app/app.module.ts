@@ -29,7 +29,6 @@ import {
   ],
   imports: [
     BrowserModule,
-
     MatCardModule,
     AppRoutingModule,
     NoopAnimationsModule,

@@ -1,6 +1,14 @@
 <div class="wrapper">
   <h1>Enter event details and its date</h1>
-  <textarea name="event" class="event" cols="50" rows="5"></textarea>
+  <textarea
+    name="event"
+    class="event"
+    cols="35"
+    rows="4"
+    name="fieldName"
+    [value]="description"
+    (input)="onValueChange($event)"
+  ></textarea>
   <app-calendar></app-calendar>
-  <button class="submit">Submit</button>
+  <button class="submit" (click)="onSubmit()">Submit</button>
 </div>
