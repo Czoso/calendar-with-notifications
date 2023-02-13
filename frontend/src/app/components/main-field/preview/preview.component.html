@@ -1,3 +1,24 @@
-<p>
-  preview works!
-</p>
+<div class="wrapper">
+  <div class="events" *ngFor="let event of events">
+    <div class="events__date-wrapper">
+      <div class="events__date-wrapper__date">
+        <div class="events__date-wrapper__date__day">{{ event.date?.day }}</div>
+        <div class="events__date-wrapper__date__month">
+          {{ event.date?.month }}
+        </div>
+        <div class="events__date-wrapper__date__year">
+          {{ event.date?.year }}
+        </div>
+      </div>
+      <div class="events__date-wrapper__time">
+        <div class="events__date-wrapper__time__hour">
+          {{ event.date?.time?.hour }}:
+        </div>
+        <div class="events__date-wrapper__time__minute">
+          {{ event.date?.time?.minute }}
+        </div>
+      </div>
+    </div>
+    <div class="events__description">{{ event.description }}</div>
+  </div>
+</div>
