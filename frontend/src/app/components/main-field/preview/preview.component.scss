@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+.events {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  border: 5px solid #999;
+  border-radius: 40px;
+  margin: 10px;
+  &__date-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    border: 5px solid #999;
+    border-radius: 40px;
+    height: 100%;
+    transform: translate(-5px, -5px);
+    width: 30%;
+    &__date {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      font-size: 2rem;
+      padding-top: 10px;
+    }
+    &__time {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      font-size: 2rem;
+      padding-bottom: 10px;
+    }
+  }
+  &__description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 2rem;
+    padding: 10px;
+  }
+}
