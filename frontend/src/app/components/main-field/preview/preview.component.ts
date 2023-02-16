@@ -1,3 +1,4 @@
+import { PreviewService } from './preview.service';
 import { Component, OnInit } from '@angular/core';
 import { Event as EventModel } from 'src/app/shared';
 
@@ -7,23 +8,21 @@ import { Event as EventModel } from 'src/app/shared';
   styleUrls: ['./preview.component.scss'],
 })
 export class PreviewComponent implements OnInit {
-  private event: EventModel = {
-    description: 'cokolwiek',
-    date: {
-      day: 1,
-      month: 'january',
-      year: 2012,
-      time: {
-        hour: 12,
-        minute: 15,
-      },
-    },
-  };
   public events: EventModel[] = [];
-  constructor() {}
+  constructor(private previewService: PreviewService) {}
 
   ngOnInit() {
-    this.events.push(this.event);
+    this.previewService.getItemsFromBackend().then(({ eventList }) => {
+      console.log(eventList);
+      eventList.forEach((eventItem: EventModel) => {
+        this.events.push(eventItem);
+      });
+    });
+    console.log(this.previewService.getItemsFromBackend());
     console.log(this.events);
+  }
+  public deleteItems(index: number): void {
+    this.previewService.deleteItemsFromBackend(index);
+    this.events.splice(index, 1);
   }
 }
