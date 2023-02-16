@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public headings: string[] = ['preview', 'add', 'delete', 'options'];
+  public headings: string[] = ['preview', 'add', 'options'];
   constructor() {}
 
   ngOnInit() {}
