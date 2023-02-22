@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   AddComponent,
   AppComponent,
@@ -13,6 +14,7 @@ import {
   MainFieldComponent,
   OptionsComponent,
   PreviewComponent,
+  LoginPageComponent,
 } from './components';
 
 @NgModule({
@@ -26,12 +28,15 @@ import {
     MainFieldComponent,
     CalendarComponent,
     ClockComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
     MatCardModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

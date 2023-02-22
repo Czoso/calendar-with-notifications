@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <h1 class="header">Login / Register</h1>
+  <form [formGroup]="modelForm" class="form" (ngSubmit)="onSubmit()">
+    <p class="description">Enter e-mail</p>
+    <input formControlName="email" class="email-input input" />
+    <p class="description">Enter password</p>
+    <input
+      formControlName="password"
+      type="password"
+      class="password-inpu input"
+    />
+    <button
+      type="submit"
+      [disabled]="modelForm.pristine || modelForm.status === 'INVALID'"
+      class="submit"
+    >
+      Sign In
+    </button>
+  </form>
+</div>

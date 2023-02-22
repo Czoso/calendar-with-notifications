@@ -21,3 +21,13 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+.login {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  border: 1px solid black;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
