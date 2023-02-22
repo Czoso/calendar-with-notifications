@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   AddComponent,
   DeleteComponent,
+  LoginPageComponent,
   OptionsComponent,
   PreviewComponent,
 } from './components';
@@ -10,7 +11,7 @@ import {
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'preview',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
     path: 'options',
     component: OptionsComponent,
   },
-  { path: '**', component: PreviewComponent },
+  { path: '**', component: LoginPageComponent },
 ];
 
 @NgModule({

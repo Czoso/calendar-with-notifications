@@ -1,4 +1,11 @@
 <div class="wrapper">
-  <app-header class="header"></app-header>
-  <app-main-field class="content"></app-main-field>
+  <app-login-page
+    *ngIf="router.url === '/login'"
+    class="login"
+  ></app-login-page>
+  <app-header class="header" *ngIf="router.url !== '/login'"></app-header>
+  <app-main-field
+    class="content"
+    *ngIf="router.url !== '/login'"
+  ></app-main-field>
 </div>
