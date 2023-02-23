@@ -14,9 +14,9 @@ export class ClockComponent implements OnInit {
   constructor(private clockService: ClockService) {}
 
   ngOnInit() {
-    setTimeout(() => {
-      this.setValue();
-    }, 200);
+    // setTimeout(() => {
+    //   this.setValue();
+    // }, 200);
   }
   private setValue() {
     const hour = Number(
