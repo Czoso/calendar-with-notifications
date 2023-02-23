@@ -36,6 +36,8 @@
       class="days__day"
       [ngClass]="{ 'day-exist': day }"
       *ngFor="let day of days"
+      name="fieldName"
+      ngDefaultControl
     >
       {{ day }}
     </div>

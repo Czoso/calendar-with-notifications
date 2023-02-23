@@ -12,14 +12,9 @@ export class PreviewComponent implements OnInit {
   constructor(private previewService: PreviewService) {}
 
   ngOnInit() {
-    this.previewService.getItemsFromBackend().then(({ eventList }) => {
-      console.log(eventList);
-      eventList.forEach((eventItem: EventModel) => {
-        this.events.push(eventItem);
-      });
-    });
-    console.log(this.previewService.getItemsFromBackend());
-    console.log(this.events);
+    if (localStorage.getItem('events')) {
+      this.events = JSON.parse(localStorage.getItem('events')!).eventList;
+    }
   }
   public deleteItems(index: number): void {
     this.previewService.deleteItemsFromBackend(index);
