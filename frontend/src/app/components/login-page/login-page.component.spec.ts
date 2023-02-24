@@ -1,28 +1,24 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { LoginPageComponent } from './login-page.component';
-
-describe('LoginPageComponent', () => {
-  let component: LoginPageComponent;
-  let fixture: ComponentFixture<LoginPageComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginPageComponent ]
-    })
-    .compileComponents();
-  }));
-
+describe('LoginComponent', () => {
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    cy.mount(LoginPageComponent);
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('check if form is valid', () => {
+    const testEmail = 'test@email.com';
+    cy.get('.email-input').type(testEmail);
+    const testPassword = '12345dafad';
+    cy.get('.password-input').type(testPassword);
+    cy.get('form')
+      .then(($el) => $el[0].checkValidity())
+      .should('be.true');
+  });
+  it('check if email is invalid', () => {
+    const testPassword = '12345dafad';
+    cy.get('.password-input').type(testPassword);
+    const testEmail = 'abcder';
+    cy.get('.email-input').type(testEmail);
+    cy.get('form')
+      .then(($el) => $el[0].checkValidity())
+      .should('be.false');
   });
 });

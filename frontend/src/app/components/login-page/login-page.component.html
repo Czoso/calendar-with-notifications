@@ -2,12 +2,12 @@
   <h1 class="header">Login / Register</h1>
   <form [formGroup]="modelForm" class="form" (ngSubmit)="onSubmit()">
     <p class="description">Enter e-mail</p>
-    <input formControlName="email" class="email-input input" />
+    <input formControlName="email" type="email" class="email-input input" />
     <p class="description">Enter password</p>
     <input
       formControlName="password"
       type="password"
-      class="password-inpu input"
+      class="password-input input"
     />
     <button
       type="submit"
